@@ -1,0 +1,41 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build artifacts
+*.zip
+dist/
+build/
+
+# Development and testing files
+create-icons.html
+create-wtm-icons.html
+viewer-template.html
+
+# Screenshots and images (keep only icons/)
+*.png
+!icons/*.png
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Chrome extension private key
+*.pem
+
+# Node modules (if you add npm later)
+node_modules/
+package-lock.json
+
+# Environment files
+.env
+.env.local
