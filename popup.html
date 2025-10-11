@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WTM Ambassador Activity Exporter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>WTM Ambassador Activity Exporter</h1>
+    <p class="description">Download your WTM Ambassador activity data</p>
+
+    <div id="status" class="status hidden"></div>
+
+    <div class="button-group">
+      <button id="extractData" class="btn btn-primary">
+        Extract Data
+      </button>
+
+      <div id="downloadButtons" class="hidden">
+        <div class="download-section">
+          <button id="downloadJSON" class="btn btn-secondary">
+            Download JSON
+          </button>
+
+          <button id="downloadExcel" class="btn btn-secondary">
+            Download Excel (XLSX)
+          </button>
+
+          <button id="downloadZIP" class="btn btn-success">
+            Download Complete Backup (ZIP with Images)
+          </button>
+        </div>
+
+        <button id="clearData" class="btn btn-clear">
+          Clear Cached Data
+        </button>
+      </div>
+    </div>
+
+    <div id="dataPreview" class="data-preview hidden">
+      <h3>Data Preview:</h3>
+      <div id="previewContent"></div>
+    </div>
+
+    <div class="footer">
+      <small>Make sure you're on your WTM Advocu profile page</small>
+    </div>
+  </div>
+
+  <script src="jszip.min.js"></script>
+  <script src="xlsx.full.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
