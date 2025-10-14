@@ -42,13 +42,14 @@ The extension accesses:
 The extension requires the following permissions:
 
 - **activeTab**: To access the current WTM Advocu page you're viewing
-- **scripting**: To run code that extracts data from the page
 - **downloads**: To save exported files to your computer
-- **storage**: To temporarily store authentication tokens locally
-- **webRequest**: To capture authentication tokens from API requests
-- **host_permissions (wtm.advocu.com)**: To access WTM Advocu pages
-- **host_permissions (api-wtm.advocu.com)**: To make API requests to fetch your data
-- **host_permissions (storage.googleapis.com)**: To download activity images
+- **storage**: To temporarily store authentication tokens locally for session persistence
+- **webRequest**: To capture authentication tokens from API requests to access your own data
+- **host_permissions (wtm.advocu.com)**: To access WTM Advocu pages where you're viewing your profile
+- **host_permissions (api-wtm.advocu.com)**: To make API requests to fetch your activity data
+- **host_permissions (storage.googleapis.com)**: To download activity images that are part of your activities
+
+Note: This extension uses content scripts (declared in manifest.json) to extract data from the page, not programmatic script injection.
 
 ## Third-Party Services
 

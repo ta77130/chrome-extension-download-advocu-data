@@ -136,10 +136,9 @@ Banner showing the full workflow: Extract → Download → Beautiful Report
 ## Justification for Permissions
 
 - **activeTab**: Access the current WTM Advocu page to extract data
-- **scripting**: Run content scripts to parse activity information
 - **downloads**: Save exported files to user's computer
-- **storage**: Temporarily store authentication tokens
-- **webRequest**: Capture auth tokens from API requests
-- **wtm.advocu.com**: Access WTM Advocu pages
-- **api-wtm.advocu.com**: Fetch activity data from API
-- **storage.googleapis.com**: Download activity images
+- **storage**: Temporarily store authentication tokens for session persistence
+- **webRequest**: Capture authentication tokens from API requests to access user's own data
+- **wtm.advocu.com**: Access WTM Advocu pages where user is viewing their profile
+- **api-wtm.advocu.com**: Fetch activity data from the Advocu API using user's authentication
+- **storage.googleapis.com**: Download activity images that are part of user's activities

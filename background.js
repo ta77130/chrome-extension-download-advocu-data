@@ -18,6 +18,10 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
         chrome.storage.local.set({
           advocuAuthToken: token,
           tokenCapturedAt: new Date().toISOString()
+        }, () => {
+          if (chrome.runtime.lastError) {
+            console.error('Error storing auth token:', chrome.runtime.lastError);
+          }
         });
       }
     }

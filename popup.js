@@ -3,6 +3,30 @@
 
 let extractedData = null;
 
+// Utility: Escape HTML to prevent XSS
+function escapeHtml(unsafe) {
+  if (!unsafe) return '';
+  return unsafe
+    .toString()
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Utility: Safely escape JSON for embedding in HTML
+function escapeJSON(obj) {
+  const jsonString = JSON.stringify(obj, null, 2);
+  return jsonString
+    .replace(/\\/g, '\\\\')
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
+    .replace(/'/g, '\\u0027')
+    .replace(/"/g, '\\"');
+}
+
 // DOM elements
 const extractButton = document.getElementById('extractData');
 const downloadButtonsDiv = document.getElementById('downloadButtons');
@@ -358,8 +382,8 @@ function downloadExcel() {
 
 // Generate HTML viewer for offline viewing
 function generateHTMLViewer(data) {
-  // Embed the data directly to avoid CORS issues
-  const jsonData = JSON.stringify(data, null, 2);
+  // Safely embed the data to prevent XSS
+  const jsonData = escapeJSON(data);
 
   return `<!DOCTYPE html>
 <html lang="en">

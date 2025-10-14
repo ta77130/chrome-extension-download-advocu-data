@@ -187,7 +187,9 @@ async function fetchActivitiesFromAPI(userId, token) {
 
 // Helper function to format large numbers (e.g., 2258 -> "2.3k")
 function formatNumber(num) {
-  if (!num) return '0';
+  if (!num) {
+    return '0';
+  }
   if (num >= 1000) {
     return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
   }
@@ -203,7 +205,9 @@ function transformSummaryData(summaryData) {
     speakingEngagements: {}
   };
 
-  if (!summaryData) return summary;
+  if (!summaryData) {
+    return summary;
+  }
 
   // Events (communityActivities)
   if (summaryData.communityActivities) {
@@ -309,7 +313,7 @@ function transformActivitiesData(activitiesArray) {
       const city = activity.eventCity;
       const country = activity.eventCountry;
       let location = '';
-      if (city && city !== 'null') {
+      if (city && typeof city === 'string' && city.trim() !== '' && city !== 'null') {
         location = country ? `${city}, ${country}` : city;
       } else {
         location = country || '';
@@ -421,7 +425,7 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
       .catch(error => {
         sendResponse({ success: false, error: error.message });
       });
-    return true; // Keep the message channel open for async response
+    return true;
   }
 });
 

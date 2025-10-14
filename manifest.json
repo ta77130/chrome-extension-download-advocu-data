@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
   "name": "WTM Ambassador Activity Exporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Export your WTM Ambassador activity data including events, resources, mentorship, and speaking engagements",
   "permissions": [
     "activeTab",
-    "scripting",
     "downloads",
     "storage",
     "webRequest"
