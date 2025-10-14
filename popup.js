@@ -15,16 +15,14 @@ function escapeHtml(unsafe) {
     .replace(/'/g, '&#039;');
 }
 
-// Utility: Safely escape JSON for embedding in HTML
+// Utility: Safely escape JSON for embedding in HTML/JavaScript
 function escapeJSON(obj) {
   const jsonString = JSON.stringify(obj, null, 2);
   return jsonString
-    .replace(/\\/g, '\\\\')
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
-    .replace(/&/g, '\\u0026')
-    .replace(/'/g, '\\u0027')
-    .replace(/"/g, '\\"');
+    .replace(/\u2028/g, '\\u2028') 
+    .replace(/\u2029/g, '\\u2029');
 }
 
 // DOM elements
